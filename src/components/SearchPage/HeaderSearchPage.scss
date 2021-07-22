@@ -1,0 +1,30 @@
+.header-search-page {
+  height: 80px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+
+  &-content {
+    width: 1030px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-link {
+      margin-left: 20px;
+      font-size: 18px;
+    }
+
+    .exit-btn {
+      color: #1390E5;
+      width: 100px;
+      height: 100%;
+      background: none;
+      border: none;
+      font-size: 18px;
+    }
+  }
+}
