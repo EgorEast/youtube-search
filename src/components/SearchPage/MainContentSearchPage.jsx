@@ -3,6 +3,7 @@ import SearchField from './SearchField';
 import FilterPanel from './FilterPanel';
 import CardVideo from './CardVideo';
 import { Typography } from 'antd';
+import './MainContentSearchPage.scss';
 
 const { Title } = Typography;
 
