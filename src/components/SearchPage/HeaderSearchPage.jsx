@@ -1,4 +1,5 @@
 import React from 'react';
+import './HeaderSearchPage.scss';
 
 const HeaderSearchPage = () => {
 	return (
