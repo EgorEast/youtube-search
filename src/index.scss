@@ -7,14 +7,13 @@
   display: none;
 }
 
-@import './components/LoginPage/LoginPage.scss';
-@import './components/SearchPage/HeaderSearchPage.scss';
-@import './components/SearchPage/SearchPageMain.scss';
-
-
 .page {
   min-height: 100vh;
   width: 100vw;
-  min-width: 1030px;
+
   background: #eeeeee;
+}
+
+.search-page {
+  min-width: 1030px;
 }
