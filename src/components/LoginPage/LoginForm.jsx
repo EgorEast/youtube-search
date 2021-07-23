@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 
 const LoginForm = () => {
 	const [form] = Form.useForm();
+	const [styleError, setStyle] = useState({
+		display: 'none',
+	});
 	const onFinish = (values) => {
-		console.log('Success:', values);
-		form.resetFields();
+		let users = JSON.parse(localStorage.getItem('users'));
+
+		const savedUser = users.filter((user) => {
+			if (
+				user.username === values.username.toLowerCase() &&
+				user.password === values.password
+			)
+				if (user.token) {
+					return user;
+				}
+			return null;
+		});
+
+		if (savedUser.length) {
+			console.log('Correct!');
+			setStyle({ display: 'none' });
+			form.resetFields();
+		} else {
+			console.log('Incorrect');
+			setStyle({ color: 'red' });
+		}
 	};
 
 	const onFinishFailed = (errorInfo) => {
@@ -114,6 +136,9 @@ const LoginForm = () => {
 					Войти
 				</Button>
 			</Form.Item>
+			<div style={styleError}>
+				Ошибка! Не корректно введены данные или такого пользователя нет
+			</div>
 		</Form>
 	);
 };
