@@ -3,18 +3,18 @@ import SearchField from './SearchField';
 import FilterPanel from './FilterPanel';
 import CardVideo from './CardVideo';
 import { Typography } from 'antd';
-import './MainContentSearchPage.scss';
+import './SearchAndResultsContent.scss';
 
 const { Title } = Typography;
 
-const MainContentSearchPage = () => {
+const SearchAndResultsContent = () => {
 	const [isSearch, setIsSearch] = useState(false);
 	const displayResultsContainer = () => {
 		if (!isSearch) return { display: 'none' };
 	};
 	return (
-		<div className='search-page-main'>
-			<div className='search-page-main-content'>
+		<div className='search-page-main-content'>
+			<div className='search-and-results-content'>
 				<div className='search-container'>
 					<Title>Поиск видео</Title>
 					<SearchField setIsSearch={setIsSearch} isSearch={isSearch} />
@@ -40,4 +40,4 @@ const MainContentSearchPage = () => {
 	);
 };
 
-export default MainContentSearchPage;
+export default SearchAndResultsContent;

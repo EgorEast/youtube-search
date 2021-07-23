@@ -1,0 +1,38 @@
+.search-and-results-content {
+  width: 1030px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .search-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+  }
+
+  .results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .filter-panel {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding-bottom: 20px;
+    }
+
+    .results {
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: auto;
+    }
+  }
+}

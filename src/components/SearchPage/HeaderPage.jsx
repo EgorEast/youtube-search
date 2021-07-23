@@ -1,10 +1,11 @@
 import React from 'react';
-import './HeaderSearchPage.scss';
+import './HeaderPage.scss';
+import { NavLink } from 'react-router-dom';
 
-const HeaderSearchPage = () => {
+const HeaderPage = () => {
 	return (
-		<div className='header-search-page'>
-			<div className='header-search-page-content'>
+		<div className='header-page'>
+			<div className='header-page-content'>
 				<nav>
 					<img src='logoSibdev.png' alt='' style={{ width: '48px' }} />
 					<a href='#' target='_self' className='header-link'>
@@ -14,10 +15,12 @@ const HeaderSearchPage = () => {
 						Избранное
 					</a>
 				</nav>
-				<button className='exit-btn'>Выйти</button>
+				<NavLink to={'/'}>
+					<button className='exit-btn'>Выйти</button>
+				</NavLink>
 			</div>
 		</div>
 	);
 };
 
-export default HeaderSearchPage;
+export default HeaderPage;
