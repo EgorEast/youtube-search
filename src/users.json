@@ -1,0 +1,17 @@
+[
+  {
+    "username": "egor",
+    "password": "123qwe",
+    "token": "RWdvcjEyM3F3ZQ=="
+  },
+  {
+    "username": "user",
+    "password": "user",
+    "token": "dXNlcnVzZXI="
+  },
+  {
+    "username": "admin",
+    "password": "admin",
+    "token": "YWRtaW5hZG1pbg=="
+  }
+]
