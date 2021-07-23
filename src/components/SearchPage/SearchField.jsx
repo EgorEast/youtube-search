@@ -27,7 +27,8 @@ const SearchField = ({ isSearch, setIsSearch }) => {
 
 	const onSearch = (value) => {
 		console.log(value);
-		setIsSearch(true);
+
+		if (value.trim()) setIsSearch(true);
 	};
 
 	const onSave = (value) => console.log(value);
