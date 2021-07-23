@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
 	const [form] = Form.useForm();
 	const [styleError, setStyle] = useState({
 		display: 'none',
 	});
+	let history = useHistory();
 	const onFinish = (values) => {
 		let users = JSON.parse(localStorage.getItem('users'));
 
@@ -21,13 +23,10 @@ const LoginForm = () => {
 		});
 
 		if (savedUser.length) {
-			console.log('Correct!');
 			setStyle({ display: 'none' });
 			form.resetFields();
-		} else {
-			console.log('Incorrect');
-			setStyle({ color: 'red' });
-		}
+			history.push('/search');
+		} else setStyle({ color: 'red' });
 	};
 
 	const onFinishFailed = (errorInfo) => {

@@ -1,0 +1,12 @@
+.search-page {
+  min-width: 1030px;
+
+  .search-page-main-content {
+    width: 100vw;
+    min-width: 1030px;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
