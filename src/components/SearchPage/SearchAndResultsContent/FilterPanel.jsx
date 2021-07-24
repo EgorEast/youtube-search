@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Typography } from 'antd';
 import { UnorderedListOutlined, AppstoreOutlined } from '@ant-design/icons';
+import { setActiveFilter } from '../../../store/activeFilterSlice';
 
 const { Text } = Typography;
 const FilterPanel = () => {
-	const [activeFilter, setActiveFilter] = useState('grid');
-
+	const activeFilter = useSelector((state) => state.activeFilter.activeFilter);
+	const dispatch = useDispatch();
 	const getStyle = (filter) => {
 		const style = {
 			fontSize: 24,
 			marginLeft: '15px',
 		};
-		if (filter === activeFilter) return { ...style, color: 'lightgray' };
-		return style;
+		if (filter === activeFilter.payload) return style;
+		return { ...style, color: 'lightgray' };
 	};
 
 	return (
@@ -25,13 +27,13 @@ const FilterPanel = () => {
 				<UnorderedListOutlined
 					style={getStyle('list')}
 					onClick={() => {
-						setActiveFilter('list');
+						dispatch(setActiveFilter('list'));
 					}}
 				/>
 				<AppstoreOutlined
 					style={getStyle('grid')}
 					onClick={() => {
-						setActiveFilter('grid');
+						dispatch(setActiveFilter('grid'));
 					}}
 				/>
 			</div>
