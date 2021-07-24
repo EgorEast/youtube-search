@@ -10,6 +10,8 @@ const { Title } = Typography;
 
 const SearchAndResultsContent = () => {
 	const isSearch = useSelector((state) => state.isSearch.isSearch);
+	const videoList = useSelector((state) => state.videoList.videoList);
+	console.log(videoList);
 
 	const displayResultsContainer = () => {
 		if (!isSearch) return { display: 'none' };

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setIsSearch } from '../../../store/isSearchSlice';
 import { Input } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
+import { getVideos } from '../../../store/videoListSlice';
 
 const { Search } = Input;
 
@@ -30,9 +31,10 @@ const SearchField = () => {
 	};
 
 	const onSearch = (value) => {
-		console.log(value);
-
-		if (value.trim()) dispatch(setIsSearch(true));
+		if (value.trim()) {
+			dispatch(getVideos(value));
+			dispatch(setIsSearch(true));
+		}
 	};
 
 	const onSave = (value) => console.log(value);
