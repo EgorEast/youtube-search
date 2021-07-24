@@ -8,12 +8,12 @@ const HeaderPage = () => {
 			<div className='header-page-content'>
 				<nav>
 					<img src='logoSibdev.png' alt='' style={{ width: '48px' }} />
-					<a href='#' target='_self' className='header-link'>
+					<NavLink to={'/search/results'} className='header-link'>
 						Поиск
-					</a>
-					<a href='#' target='_self' className='header-link'>
+					</NavLink>
+					<NavLink to={'/search/favorites'} className='header-link'>
 						Избранное
-					</a>
+					</NavLink>
 				</nav>
 				<NavLink to={'/'}>
 					<button className='exit-btn'>Выйти</button>
