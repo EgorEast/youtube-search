@@ -8,6 +8,7 @@ function App() {
 	useEffect(() => {
 		localStorage.setItem('users', JSON.stringify(users));
 	}, []);
+
 	return (
 		<BrowserRouter>
 			<div className='container'>
