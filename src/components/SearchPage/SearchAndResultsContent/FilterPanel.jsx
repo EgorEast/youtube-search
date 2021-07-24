@@ -8,19 +8,22 @@ const { Text } = Typography;
 const FilterPanel = () => {
 	const activeFilter = useSelector((state) => state.activeFilter.activeFilter);
 	const dispatch = useDispatch();
+
 	const getStyle = (filter) => {
 		const style = {
 			fontSize: 24,
 			marginLeft: '15px',
 		};
-		if (filter === activeFilter.payload) return style;
+		if (filter === activeFilter) return style;
 		return { ...style, color: 'lightgray' };
 	};
 
 	return (
 		<div className='filter-panel'>
 			<div>
-				<Text>Видео по запросу «{'Результат запроса'}»</Text>
+				<Text style={{ marginRight: '15px' }}>
+					Видео по запросу «{'Результат запроса'}»
+				</Text>
 				<Text type='secondary'>{'7230'}</Text>
 			</div>
 			<div>
