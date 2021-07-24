@@ -1,11 +1,15 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setIsSearch } from '../../../store/isSearchSlice';
 import { Input } from 'antd';
-import PropTypes from 'prop-types';
 import { HeartOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 
-const SearchField = ({ isSearch, setIsSearch }) => {
+const SearchField = () => {
+	const isSearch = useSelector((state) => state.isSearch.isSearch);
+	const dispatch = useDispatch();
+
 	const getStylesHeart = () => {
 		const style = {
 			fontSize: 16,
@@ -28,7 +32,7 @@ const SearchField = ({ isSearch, setIsSearch }) => {
 	const onSearch = (value) => {
 		console.log(value);
 
-		if (value.trim()) setIsSearch(true);
+		if (value.trim()) dispatch(setIsSearch(true));
 	};
 
 	const onSave = (value) => console.log(value);
@@ -44,11 +48,6 @@ const SearchField = ({ isSearch, setIsSearch }) => {
 			style={getStylesSearch()}
 		/>
 	);
-};
-
-SearchField.propTypes = {
-	isSearch: PropTypes.boolean,
-	setIsSearch: PropTypes.func,
 };
 
 export default SearchField;

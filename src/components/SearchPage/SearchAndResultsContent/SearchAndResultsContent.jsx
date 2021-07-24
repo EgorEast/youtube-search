@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import SearchField from './SearchField';
 import FilterPanel from './FilterPanel';
 import CardVideo from './CardVideo';
@@ -8,7 +9,8 @@ import './SearchAndResultsContent.scss';
 const { Title } = Typography;
 
 const SearchAndResultsContent = () => {
-	const [isSearch, setIsSearch] = useState(false);
+	const isSearch = useSelector((state) => state.isSearch.isSearch);
+
 	const displayResultsContainer = () => {
 		if (!isSearch) return { display: 'none' };
 	};
@@ -17,7 +19,7 @@ const SearchAndResultsContent = () => {
 			<div className='search-and-results-content'>
 				<div className='search-container'>
 					<Title>Поиск видео</Title>
-					<SearchField setIsSearch={setIsSearch} isSearch={isSearch} />
+					<SearchField />
 				</div>
 				<div className='results-container' style={displayResultsContainer()}>
 					<FilterPanel />
