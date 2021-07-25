@@ -7,6 +7,9 @@ import { setActiveFilter } from '../../../store/activeFilterSlice';
 const { Text } = Typography;
 const FilterPanel = () => {
 	const activeFilter = useSelector((state) => state.activeFilter.activeFilter);
+	const termSearchField = useSelector(
+		(state) => state.termSearchField.termSearchField
+	);
 	const dispatch = useDispatch();
 
 	const getStyle = (filter) => {
@@ -22,9 +25,9 @@ const FilterPanel = () => {
 		<div className='filter-panel'>
 			<div>
 				<Text style={{ marginRight: '15px' }}>
-					Видео по запросу «{'Результат запроса'}»
+					Видео по запросу «{termSearchField}»
 				</Text>
-				<Text type='secondary'>{'7230'}</Text>
+				<Text type='secondary'> </Text>
 			</div>
 			<div>
 				<UnorderedListOutlined
