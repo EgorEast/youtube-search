@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setIsSearch } from '../../../store/isSearchSlice';
 import { Input } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 import { getVideos } from '../../../store/videoListSlice';
+import { setVisibleModal } from '../../../store/visibleModalSlice';
+import { setTermSearchField } from '../../../store/termSearchFieldSlice';
 
 const { Search } = Input;
 
 const SearchField = () => {
 	const isSearch = useSelector((state) => state.isSearch.isSearch);
+	const [isFieldFilled, setIsFieldFilled] = useState(false);
 	const dispatch = useDispatch();
 
 	const getStylesHeart = () => {
@@ -34,10 +37,19 @@ const SearchField = () => {
 		if (termFromInputField.trim()) {
 			dispatch(getVideos({ termFromInputField }));
 			dispatch(setIsSearch(true));
+			setIsFieldFilled(true);
 		}
 	};
+	const onChangeSearch = (obj) => {
+		if (obj.target.value.trim()) {
+			setIsFieldFilled(true);
+			dispatch(setTermSearchField(obj.target.value));
+		} else setIsFieldFilled(false);
+	};
 
-	const onSave = (value) => console.log(value);
+	const onSave = () => {
+		if (isFieldFilled) dispatch(setVisibleModal(true));
+	};
 
 	const suffix = <HeartOutlined style={getStylesHeart()} onClick={onSave} />;
 	return (
@@ -47,6 +59,7 @@ const SearchField = () => {
 			size='large'
 			suffix={suffix}
 			onSearch={onSearch}
+			onChange={onChangeSearch}
 			style={getStylesSearch()}
 		/>
 	);
