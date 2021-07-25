@@ -11,7 +11,6 @@ const { Title } = Typography;
 const SearchAndResultsContent = () => {
 	const isSearch = useSelector((state) => state.isSearch.isSearch);
 	const videoList = useSelector((state) => state.videoList.videoList);
-	console.log(videoList);
 
 	const displayResultsContainer = () => {
 		if (!isSearch) return { display: 'none' };
@@ -26,17 +25,18 @@ const SearchAndResultsContent = () => {
 				<div className='results-container' style={displayResultsContainer()}>
 					<FilterPanel />
 					<div className='results'>
-						<CardVideo />
-						<CardVideo />
-						<CardVideo />
-						<CardVideo />
-						<CardVideo />
-						<CardVideo />
-						<CardVideo />
-						<CardVideo />
-						<CardVideo />
-						<CardVideo />
-						<CardVideo />
+						{videoList.map((video) => {
+							return (
+								<CardVideo
+									key={video.id.videoId}
+									videoId={video.id.videoId}
+									previewSrc={video.snippet.thumbnails.medium.url}
+									altText={video.snippet.description}
+									title={video.snippet.title}
+									description={video.snippet.description}
+								/>
+							);
+						})}
 					</div>
 				</div>
 			</div>

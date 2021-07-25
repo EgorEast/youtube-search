@@ -1,45 +1,32 @@
 import React from 'react';
 import { Card } from 'antd';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const { Meta } = Card;
 
-// const CardVideo = ({ address, previewSrc, title, description }) => {
-// 	return (
-// 		<a href={address} target='_self'>
-// 			<Card
-// 				style={{ width: 245 }}
-// 				cover={<img alt='preview' src={previewSrc} />}
-// 			>
-// 				<Meta title={title} description={description} />
-// 			</Card>
-// 		</a>
-// 	);
-// };
-
-// CardVideo.propTypes = {
-// 	previewSrc: PropTypes.string,
-// 	title: PropTypes.string,
-// 	description: PropTypes.string,
-// 	address: PropTypes.string,
-// };
-
-const CardVideo = () => {
+const CardVideo = ({ videoId, previewSrc, altText, title, description }) => {
 	return (
-		<a href='#' target='_self'>
+		<a
+			href={`https://www.youtube.com/watch?v=${videoId}`}
+			target='_blank'
+			style={{ marginBottom: 20 }}
+			rel='noreferrer'
+		>
 			<Card
 				style={{ width: 245 }}
-				cover={
-					<img
-						alt='preview'
-						src='https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
-					/>
-				}
+				cover={<img src={previewSrc} alt={altText} />}
 			>
-				<Meta title='Card title' description='This is the description' />
+				<Meta title={title} description={description} />
 			</Card>
 		</a>
 	);
 };
 
+CardVideo.propTypes = {
+	previewSrc: PropTypes.string,
+	altText: PropTypes.string,
+	title: PropTypes.string,
+	description: PropTypes.string,
+	videoId: PropTypes.string,
+};
 export default CardVideo;

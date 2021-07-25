@@ -3,7 +3,9 @@ import youtube from '../apis/youtube';
 
 export const getVideos = createAsyncThunk(
 	'videoList/getVideos',
-	async (termFromInputField) => {
+	async ({ termFromInputField, maxResults }) => {
+		youtube.defaults.params.maxResults = maxResults ?? 12;
+
 		const response = await youtube.get('/search', {
 			params: {
 				q: termFromInputField,

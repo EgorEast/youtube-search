@@ -30,9 +30,9 @@ const SearchField = () => {
 		};
 	};
 
-	const onSearch = (value) => {
-		if (value.trim()) {
-			dispatch(getVideos(value));
+	const onSearch = (termFromInputField) => {
+		if (termFromInputField.trim()) {
+			dispatch(getVideos({ termFromInputField }));
 			dispatch(setIsSearch(true));
 		}
 	};
