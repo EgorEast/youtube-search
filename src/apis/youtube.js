@@ -6,5 +6,6 @@ export default axios.create({
 	params: {
 		part: 'snippet',
 		key: MY_YOUTUBE_API_KEY,
+		type: 'video',
 	},
 });
