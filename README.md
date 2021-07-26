@@ -5,6 +5,6 @@
 Для выполнения задания использовались библиотеки:
 
 * UI-библиотека: [Ant Design](https://ant.design/)
-* Управление состоянием приложения: [Redux](https://redux.js.org/)
+* Управление состоянием приложения: [Redux](https://redux.js.org/) и [Redux Toolkit](https://redux-toolkit.js.org/)
 * Маршрутизация: [React Router](https://reacttraining.com/react-router/)
 * Библиотека для упрощения API запросов: [Axios](https://reacttraining.com/react-router/)
