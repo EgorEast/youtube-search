@@ -8,3 +8,5 @@
 * Управление состоянием приложения: [Redux](https://redux.js.org/) и [Redux Toolkit](https://redux-toolkit.js.org/)
 * Маршрутизация: [React Router](https://reacttraining.com/react-router/)
 * Библиотека для упрощения API запросов: [Axios](https://reacttraining.com/react-router/)
+
+Для ускорения скачивания модулей был использован package manager - [yarn](https://yarnpkg.com/)
