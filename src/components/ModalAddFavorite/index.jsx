@@ -70,9 +70,13 @@ const ModalAddFavorite = () => {
 					form={form}
 					onFinish={onFinishForm}
 					onFinishFailed={onFinishFormFailed}
+					initialValues={{
+						['request']: termSearchField,
+						['maxNumber']: 12,
+					}}
 				>
 					<Form.Item label='Запрос' name='request'>
-						<Input defaultValue={termSearchField} />
+						<Input disabled={true} />
 					</Form.Item>
 
 					<Form.Item
@@ -112,7 +116,6 @@ const ModalAddFavorite = () => {
 										min={1}
 										max={50}
 										onChange={onChangeSlider}
-										defaultValue={12}
 										value={typeof sliderValue === 'number' ? sliderValue : 0}
 									/>
 								</Form.Item>
@@ -123,7 +126,6 @@ const ModalAddFavorite = () => {
 										min={1}
 										max={50}
 										style={{ margin: '0 16px' }}
-										defaultValue={12}
 										value={sliderValue}
 										onChange={onChangeSlider}
 									/>
